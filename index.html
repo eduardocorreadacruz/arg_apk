@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./meu-aplicativo-eletron/src/style.css">
+    <script src="./meu-aplicativo-eletron/src/script.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div class="mobile">
+        <div class="phone">
+            <div class="screen">
+                    
+
+
+    <div class="app-grid">
+
+        <button id="abrirNovaPagina1"><img src="./meu-aplicativo-eletron/src/img/logo_app1.png" alt="Ícone do Aplicativo" style="width: 50px; height: 50px;"></button>        <div id="novaPagina1" style="display:none;">               
+            <div class="mobile_camera">
+                <div class="phone_camera">
+                    <div class="screen_camera">
+                            </div>  
+         
+                                <div class="bottom-nav">
+                                    <button class="nav-button" id="back-btn">&#9665;</button>
+                                    <button class="nav-button" id="home-btn">&#9673;</button>
+                                    <button class="nav-button" id="pages-btn">&#8801;</button>
+                    </div>  
+                </div>  
+            </div>
+        </div>  
+
+        <!-- Exemplo 2: Abre uma Nova Página com um Efeito de Fade -->  
+        <button id="abrirNovaPagina2">2</button>  
+        <div id="novaPagina2" style="display:none;">  
+            <button id="voltar2">Voltar</button>  
+            <h1>Nova Página</h1>  
+        </div>  
+
+        <!-- Exemplo 3: Abre uma Nova Página com um Efeito de Slide -->  
+        <button id="abrirNovaPagina3">3</button>  
+        <div id="novaPagina3" style="display:none;">  
+            <button id="voltar3">Voltar</button>  
+            <h1>Nova Página</h1>  
+        </div>  
+
+        <!-- Exemplo 4: Abre uma Nova Página com um Efeito de Zoom -->  
+        <button id="abrirNovaPagina4">4</button>  
+        <div id="novaPagina4" style="display:none;">  
+            <button id="voltar4">Voltar</button>  
+            <h1>Nova Página</h1>  
+        </div>  
+
+        <!-- Exemplo 5: Abre uma Nova Página com um Efeito de Rotacionar -->  
+        <button id="abrirNovaPagina5">5</button>  
+        <div id="novaPagina5" style="display:none;">  
+            <button id="voltar5">Voltar</button>  
+            <h1>Nova Página</h1>  
+        </div>  
+
+        <!-- Exemplo 6: Abre uma Nova Página com um Efeito de Deslizar para Cima -->  
+        <button id="abrirNovaPagina6">6</button>  
+        <div id="novaPagina6" style="display:none;">  
+            <button id="voltar6">Voltar</button>  
+            <h1>Nova Página</h1>  
+        </div>
+
+</div>
+
+                <div class="bottom-nav">
+                    <button class="nav-button" id="back-btn">&#9665;</button>
+                    <button class="nav-button" id="home-btn">&#9673;</button>
+                    <button class="nav-button" id="pages-btn">&#8801;</button>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+<script>
+    let history = [];
+
+document.getElementById('home-btn').addEventListener('click', () => {
+    // Esconder todas as páginas abertas
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById(`novaPagina${i}`).style.display = 'none';
+    }
+    history = []; // Limpa o histórico ao voltar para a home
+});
+
+document.getElementById('back-btn').addEventListener('click', () => {
+    if (history.length > 0) {
+        const lastPage = history.pop(); // Remove a última página do histórico
+        document.getElementById(lastPage).style.display = 'none'; // Esconde a última página
+    } else {
+        alert('Não há páginas anteriores.');
+    }
+});
+
+// Função para abrir uma nova página e registrar no histórico
+function openPage(pageId) {
+    // Esconder todas as páginas
+    for (let i = 1; i <= 6; i++) {
+        document.getElementById(`novaPagina${i}`).style.display = 'none';
+    }
+    // Mostrar a nova página
+    document.getElementById(pageId).style.display = 'block';
+    // Adicionar a nova página ao histórico
+    history.push(pageId);
+}
+
+// Adicionando eventos de clique para os botões de abrir páginas
+for (let i = 1; i <= 6; i++) {
+    document.getElementById(`abrirNovaPagina${i}`).addEventListener('click', () => {
+        openPage(`novaPagina${i}`);
+    });
+}
+</script>
+</body>  
+</html>
